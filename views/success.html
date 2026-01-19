@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Woozy Social!</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="/" class="logo">Woozy Social</a>
+    </nav>
+  </header>
+
+  <!-- Success Section -->
+  <section class="hero">
+    <div class="container">
+      <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
+      <h1>Welcome to Woozy Social!</h1>
+      <p>Your account has been created successfully</p>
+
+      <div style="max-width: 600px; margin: 2rem auto; background: rgba(255,255,255,0.2); padding: 2rem; border-radius: 12px;">
+        <div class="spinner" style="border-top-color: white;"></div>
+        <p style="margin-top: 1rem;">Redirecting you to your dashboard...</p>
+      </div>
+
+      <div style="margin-top: 2rem;">
+        <p style="font-size: 0.9rem; opacity: 0.8;">
+          If you're not redirected automatically,
+          <a href="#" id="manual-login" style="color: white; text-decoration: underline;">click here</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Woozy Social</h3>
+        <p>The all-in-one social media management platform for teams and agencies.</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="mailto:support@woozysocial.com">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Woozy Social. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Get session ID from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const sessionId = urlParams.get('session_id');
+
+    // Main app URL from environment (set during build)
+    const mainAppUrl = 'https://api.woozysocial.com';
+
+    async function completeOnboarding() {
+      try {
+        if (!sessionId) {
+          throw new Error('No session ID found');
+        }
+
+        // Call main app to complete onboarding and get login token
+        const response = await fetch(`${mainAppUrl}/api/signup/complete-onboarding`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ sessionId })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.message || 'Failed to complete onboarding');
+        }
+
+        // Redirect to main app with login token
+        window.location.href = `${mainAppUrl}/auth/token-login?token=${data.loginToken}`;
+
+      } catch (error) {
+        console.error('Error completing onboarding:', error);
+
+        // Fallback: redirect to login page
+        setTimeout(() => {
+          window.location.href = `${mainAppUrl}/login?welcome=true`;
+        }, 3000);
+      }
+    }
+
+    // Start onboarding completion
+    completeOnboarding();
+
+    // Manual login link
+    document.getElementById('manual-login').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = `${mainAppUrl}/login`;
+    });
+  </script>
+</body>
+</html>

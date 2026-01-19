@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Woozy Social</title>
+  <meta name="description" content="Create your Woozy Social account and start managing your social media like a pro.">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="/" class="logo">Woozy Social</a>
+      <ul class="nav-links">
+        <li><a href="/login" class="btn btn-secondary">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sign-Up Wizard -->
+  <div class="wizard-container">
+    <h1 style="text-align: center; margin-bottom: 2rem;">Create Your Account</h1>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+      <div class="progress-step active" data-step="1">1</div>
+      <div class="progress-step" data-step="2">2</div>
+      <div class="progress-step" data-step="3">3</div>
+      <div class="progress-step" data-step="4">4</div>
+      <div class="progress-step" data-step="5">5</div>
+      <div class="progress-step" data-step="6">6</div>
+    </div>
+
+    <!-- Alert Container -->
+    <div id="alert-container"></div>
+
+    <!-- Step 1: Account Information -->
+    <div class="wizard-step active" data-step="1">
+      <h2>Let's start with your details</h2>
+      <p style="color: var(--text-gray); margin-bottom: 1.5rem;">We'll use this to create your account</p>
+
+      <div class="form-group">
+        <label for="fullName">Full Name *</label>
+        <input type="text" id="fullName" placeholder="John Doe" required>
+        <div class="form-error" id="fullName-error"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" placeholder="john@example.com" required>
+        <div class="form-error" id="email-error"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password *</label>
+        <input type="password" id="password" placeholder="Minimum 8 characters" required>
+        <div class="form-error" id="password-error"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password *</label>
+        <input type="password" id="confirmPassword" placeholder="Re-enter your password" required>
+        <div class="form-error" id="confirmPassword-error"></div>
+      </div>
+    </div>
+
+    <!-- Step 2: Workspace Setup -->
+    <div class="wizard-step" data-step="2">
+      <h2>Name your workspace</h2>
+      <p style="color: var(--text-gray); margin-bottom: 1.5rem;">This is your brand or company name</p>
+
+      <div class="form-group">
+        <label for="workspaceName">Workspace/Brand Name *</label>
+        <input type="text" id="workspaceName" placeholder="My Awesome Brand" required>
+        <div class="form-error" id="workspaceName-error"></div>
+      </div>
+
+      <p style="color: var(--text-gray); font-size: 0.875rem;">
+        You can create additional workspaces later depending on your plan.
+      </p>
+    </div>
+
+    <!-- Step 3: Questionnaire -->
+    <div class="wizard-step" data-step="3">
+      <h2>Help us recommend the best plan</h2>
+      <p style="color: var(--text-gray); margin-bottom: 1.5rem;">Answer a few quick questions</p>
+
+      <div class="form-group">
+        <label>What's your primary goal? *</label>
+        <div class="checkbox-group" id="goals">
+          <div class="checkbox-option" data-value="schedule-posts">
+            <input type="checkbox" id="goal-schedule" value="schedule-posts">
+            <label for="goal-schedule">Schedule and automate social media posts</label>
+          </div>
+          <div class="checkbox-option" data-value="manage-brands">
+            <input type="checkbox" id="goal-brands" value="manage-brands">
+            <label for="goal-brands">Manage multiple brands or clients</label>
+          </div>
+          <div class="checkbox-option" data-value="team-collab">
+            <input type="checkbox" id="goal-team" value="team-collab">
+            <label for="goal-team">Collaborate with my team</label>
+          </div>
+          <div class="checkbox-option" data-value="analytics">
+            <input type="checkbox" id="goal-analytics" value="analytics">
+            <label for="goal-analytics">Track analytics and grow my audience</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>How many social accounts do you manage? *</label>
+        <div class="radio-group" id="socialAccounts">
+          <div class="radio-option" data-value="1-3">
+            <input type="radio" name="socialAccounts" id="accounts-1-3" value="1-3">
+            <label for="accounts-1-3">1-3 accounts</label>
+          </div>
+          <div class="radio-option" data-value="4-10">
+            <input type="radio" name="socialAccounts" id="accounts-4-10" value="4-10">
+            <label for="accounts-4-10">4-10 accounts</label>
+          </div>
+          <div class="radio-option" data-value="10+">
+            <input type="radio" name="socialAccounts" id="accounts-10+" value="10+">
+            <label for="accounts-10+">10+ accounts</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Do you work with a team? *</label>
+        <div class="radio-group" id="teamSize">
+          <div class="radio-option" data-value="solo">
+            <input type="radio" name="teamSize" id="team-solo" value="solo">
+            <label for="team-solo">Just me (solo)</label>
+          </div>
+          <div class="radio-option" data-value="small">
+            <input type="radio" name="teamSize" id="team-small" value="small">
+            <label for="team-small">Small team (2-3 people)</label>
+          </div>
+          <div class="radio-option" data-value="medium">
+            <input type="radio" name="teamSize" id="team-medium" value="medium">
+            <label for="team-medium">Medium team (4-10 people)</label>
+          </div>
+          <div class="radio-option" data-value="large">
+            <input type="radio" name="teamSize" id="team-large" value="large">
+            <label for="team-large">Large team (10+ people)</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>How many brands/workspaces do you need? *</label>
+        <div class="radio-group" id="workspaces">
+          <div class="radio-option" data-value="1">
+            <input type="radio" name="workspaces" id="workspace-1" value="1">
+            <label for="workspace-1">1 brand</label>
+          </div>
+          <div class="radio-option" data-value="2-4">
+            <input type="radio" name="workspaces" id="workspace-2-4" value="2-4">
+            <label for="workspace-2-4">2-4 brands</label>
+          </div>
+          <div class="radio-option" data-value="5+">
+            <input type="radio" name="workspaces" id="workspace-5+" value="5+">
+            <label for="workspace-5+">5+ brands</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4: Plan Selection -->
+    <div class="wizard-step" data-step="4">
+      <h2>Choose your plan</h2>
+      <p style="color: var(--text-gray); margin-bottom: 1.5rem;" id="recommendation-text">
+        Based on your answers, we recommend the <strong id="recommended-plan"></strong> plan
+      </p>
+
+      <div class="radio-group" id="planSelection">
+        <div class="radio-option" data-value="solo">
+          <input type="radio" name="selectedPlan" id="plan-solo" value="solo">
+          <div>
+            <strong>Solo</strong> - £35/month
+            <p style="font-size: 0.875rem; color: var(--text-gray); margin-top: 0.25rem;">1 workspace, 1 member</p>
+          </div>
+        </div>
+
+        <div class="radio-option" data-value="pro">
+          <input type="radio" name="selectedPlan" id="plan-pro" value="pro">
+          <div>
+            <strong>Pro</strong> - £50/month
+            <p style="font-size: 0.875rem; color: var(--text-gray); margin-top: 0.25rem;">1 workspace, up to 3 members</p>
+          </div>
+        </div>
+
+        <div class="radio-option" data-value="pro-plus">
+          <input type="radio" name="selectedPlan" id="plan-pro-plus" value="pro-plus">
+          <div>
+            <strong>Pro Plus</strong> - £115/month
+            <p style="font-size: 0.875rem; color: var(--text-gray); margin-top: 0.25rem;">Up to 4 workspaces, unlimited members</p>
+          </div>
+        </div>
+
+        <div class="radio-option" data-value="agency">
+          <input type="radio" name="selectedPlan" id="plan-agency" value="agency">
+          <div>
+            <strong>Agency</strong> - £288/month
+            <p style="font-size: 0.875rem; color: var(--text-gray); margin-top: 0.25rem;">Unlimited workspaces & members</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 5: Processing -->
+    <div class="wizard-step" data-step="5">
+      <h2 style="text-align: center;">Creating your account...</h2>
+      <div class="spinner"></div>
+      <p style="text-align: center; color: var(--text-gray);">
+        Please wait while we set everything up for you
+      </p>
+    </div>
+
+    <!-- Step 6: Stripe Checkout -->
+    <div class="wizard-step" data-step="6">
+      <h2 style="text-align: center;">Complete your subscription</h2>
+      <p style="text-align: center; color: var(--text-gray); margin-bottom: 1.5rem;">
+        Redirecting to secure payment...
+      </p>
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="wizard-actions">
+      <button type="button" id="prevBtn" class="btn btn-secondary" style="display: none;">Back</button>
+      <button type="button" id="nextBtn" class="btn btn-primary">Next</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Woozy Social</h3>
+        <p>The all-in-one social media management platform for teams and agencies.</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="mailto:support@woozysocial.com">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Woozy Social. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/js/signup.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "woozysocial-marketing",
+  "version": "1.0.0",
+  "description": "Marketing website and sign-up portal for Woozy Social",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "marketing",
+    "social-media",
+    "sign-up"
+  ],
+  "author": "Woozy Social",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1"
+  }
+}
