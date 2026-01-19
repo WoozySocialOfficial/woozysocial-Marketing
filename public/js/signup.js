@@ -497,9 +497,12 @@ async function validateEmail() {
       body: JSON.stringify({ email })
     });
 
-    const data = await response.json();
+    const result = await response.json();
 
-    if (!data.available) {
+    // API returns { success: true, data: { available: true/false } }
+    const available = result.data?.available ?? result.available;
+
+    if (!available) {
       showError('email', 'This email is already registered');
     }
   } catch (error) {
