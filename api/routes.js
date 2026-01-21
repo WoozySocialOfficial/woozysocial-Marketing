@@ -63,6 +63,14 @@ router.post('/create-account', async (req, res) => {
     );
 
     console.log('[CREATE-ACCOUNT] Success:', response.data);
+    console.log('[CREATE-ACCOUNT] userId:', response.data.userId);
+    console.log('[CREATE-ACCOUNT] workspaceId:', response.data.workspaceId);
+
+    // Ensure we're returning the data structure the frontend expects
+    if (!response.data.userId || !response.data.workspaceId) {
+      console.error('[CREATE-ACCOUNT] WARNING: Missing userId or workspaceId in response!');
+    }
+
     res.json(response.data);
   } catch (error) {
     console.error('[CREATE-ACCOUNT] Error:', error.message);
@@ -81,6 +89,18 @@ router.post('/create-account', async (req, res) => {
 router.post('/create-checkout', async (req, res) => {
   try {
     const { userId, workspaceId, tier, email, fullName } = req.body;
+
+    console.log('[CREATE-CHECKOUT] Received:', { userId, workspaceId, tier, email, fullName });
+
+    // Validate required fields
+    if (!userId || !workspaceId) {
+      console.error('[CREATE-CHECKOUT] Missing IDs - userId:', userId, 'workspaceId:', workspaceId);
+      return res.status(400).json({
+        error: 'Missing required fields',
+        message: 'userId and workspaceId are required',
+        received: { userId, workspaceId, tier, email, fullName }
+      });
+    }
 
     // Call main app Stripe endpoint
     const response = await axios.post(
