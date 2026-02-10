@@ -31,7 +31,7 @@ Follow the prompts:
 
 | Variable Name | Value | Environment |
 |--------------|-------|-------------|
-| `MAIN_APP_URL` | `https://api.woozysocial.com` | Production |
+| `MAIN_APP_URL` | `https://www.woozysocial.com` | Production |
 | `MARKETING_SITE_URL` | `https://woozysocial-marketing.vercel.app` | Production |
 | `API_SECRET_KEY` | `e053d6b64eb61118d35f4699963590c42ce0ee72348e0e7981be14ff6ebe0c3e` | Production |
 | `NODE_ENV` | `production` | Production |
@@ -45,7 +45,7 @@ cd c:\Users\mageb\OneDrive\Desktop\woozysocial-marketing
 
 # Add each environment variable
 vercel env add MAIN_APP_URL production
-# When prompted, enter: https://api.woozysocial.com
+# When prompted, enter: https://www.woozysocial.com
 
 vercel env add MARKETING_SITE_URL production
 # When prompted, enter: https://woozysocial-marketing.vercel.app
@@ -95,7 +95,7 @@ After deployment completes:
    You should see:
    ```json
    {
-     "mainAppUrl": "https://api.woozysocial.com",
+     "mainAppUrl": "https://www.woozysocial.com",
      "marketingSiteUrl": "https://woozysocial-marketing.vercel.app",
      "hasApiKey": true,
      "nodeEnv": "production"
@@ -130,11 +130,11 @@ The logs will show:
 
 ## When Your Custom Domain is Ready
 
-Once `www.woozysocials.com` is configured:
+Once `www.woozysocial.com` is configured:
 
 1. Update the `MARKETING_SITE_URL` environment variable:
    ```
-   MARKETING_SITE_URL=https://www.woozysocials.com
+   MARKETING_SITE_URL=https://www.woozysocial.com
    ```
 
 2. Redeploy
@@ -169,8 +169,8 @@ Once `www.woozysocials.com` is configured:
 ## Current Deployment Status
 
 - **Marketing Site:** `https://woozysocial-marketing.vercel.app`
-- **Main App API:** `https://api.woozysocial.com`
-- **Custom Domain (pending):** `https://www.woozysocials.com`
+- **Main App API:** `https://www.woozysocial.com`
+- **Custom Domain (pending):** `https://www.woozysocial.com`
 
 ---
 

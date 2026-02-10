@@ -30,8 +30,11 @@ app.get('/signup/success', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-  // Redirect to main app login
-  res.redirect(process.env.MAIN_APP_URL + '/login');
+  res.sendFile(path.join(__dirname, 'views', 'login.html'));
+});
+
+app.get('/dashboard', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'dashboard.html'));
 });
 
 // API Routes

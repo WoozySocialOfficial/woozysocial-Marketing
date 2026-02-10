@@ -132,7 +132,7 @@ This marketing site communicates with the main application via API endpoints:
 |----------|-------------|---------|
 | `PORT` | Server port | `3000` |
 | `NODE_ENV` | Environment | `production` |
-| `MAIN_APP_URL` | Main application URL | `https://api.woozysocial.com` |
+| `MAIN_APP_URL` | Main application URL | `https://www.woozysocial.com` |
 | `MARKETING_SITE_URL` | This site's URL | `https://www.woozysocial.com` |
 | `API_SECRET_KEY` | Shared secret for API calls | `random-secret-key` |
 

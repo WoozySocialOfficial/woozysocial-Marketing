@@ -76,7 +76,7 @@ In Vercel dashboard (https://vercel.com):
 | Key | Value (Production) | Environment |
 |-----|-------------------|-------------|
 | `NODE_ENV` | `production` | Production |
-| `MAIN_APP_URL` | `https://api.woozysocial.com` | Production |
+| `MAIN_APP_URL` | `https://www.woozysocial.com` | Production |
 | `MARKETING_SITE_URL` | `https://www.woozysocial.com` | Production |
 | `API_SECRET_KEY` | `[Generate secure key]` | Production |
 
@@ -354,7 +354,7 @@ export default async function handler(req, res) {
 ```json
 {
   "loginToken": "token-here",
-  "dashboardUrl": "https://api.woozysocial.com/dashboard"
+  "dashboardUrl": "https://www.woozysocial.com/dashboard"
 }
 ```
 

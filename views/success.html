@@ -62,7 +62,7 @@
     const sessionId = urlParams.get('session_id');
 
     // Main app URL from environment (set during build)
-    const mainAppUrl = 'https://api.woozysocial.com';
+    const mainAppUrl = 'https://www.woozysocial.com';
 
     async function completeOnboarding() {
       try {
@@ -88,7 +88,7 @@
         // Check if we got a successful response with login token
         if (data.success && data.data && data.data.loginToken) {
           // Redirect to main app with login token
-          window.location.href = `${mainAppUrl}/auth/token-login?token=${data.data.loginToken}`;
+          window.location.href = `${mainAppUrl}/dashboard`;
         } else {
           throw new Error('No login token received from server');
         }
@@ -98,7 +98,7 @@
 
         // Fallback: redirect to login page
         setTimeout(() => {
-          window.location.href = `${mainAppUrl}/login?welcome=true`;
+          window.location.href = `${mainAppUrl}/login`;
         }, 3000);
       }
     }

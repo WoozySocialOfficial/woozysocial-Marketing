@@ -101,7 +101,7 @@ woozysocial-marketing/
 
 ### Phase 2: Build Backend Endpoints in Main App (2-3 hours)
 
-You need to create 4 new API endpoints in your main app (`api.woozysocial.com`):
+You need to create 4 new API endpoints in your main app (`www.woozysocial.com`):
 
 #### 1. `POST /api/signup/validate-email`
 **Location:** Create `api/signup/validate-email.js`
@@ -419,7 +419,7 @@ export default function SignUpPage() {
 
 4. **Set environment variables** in Vercel dashboard:
    - `NODE_ENV=production`
-   - `MAIN_APP_URL=https://api.woozysocial.com`
+   - `MAIN_APP_URL=https://www.woozysocial.com`
    - `MARKETING_SITE_URL=https://www.woozysocial.com`
    - `API_SECRET_KEY=[generate secure key]`
 
